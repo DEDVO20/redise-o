@@ -21,3 +21,16 @@ class Estudiante(Base):
     semestres = relationship('Semestre', back_populates='estudiante')
     pagos = relationship('Pago', back_populates='estudiante')
     matriculas = relationship('Matricula', back_populates='estudiante')
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'nombre': self.nombre,
+            'documento': self.documento,
+            'correo': self.correo,
+            'foto_url': self.foto_url,
+            'carrera_id': self.carrera_id,
+            'rol_id': self.rol_id,
+            'fecha_registro': self.fecha_registro,
+            'estado': self.estado
+        }
