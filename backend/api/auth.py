@@ -13,12 +13,26 @@ def login():
     db = SessionLocal()
     try:
         data = request.get_json()
-        if not data or 'documento' not in data:
-            return jsonify({'error': 'Se requiere el documento del estudiante'}), 400
+        if not data or 'documento' not in data or 'password' not in data:
+            return jsonify({'error': 'Se requieren documento y contraseña del estudiante'}), 400
 
+        # Buscar estudiante por documento
         estudiante = db.query(Estudiante).filter(Estudiante.documento == data['documento']).first()
         if not estudiante:
             return jsonify({'error': 'Estudiante no encontrado'}), 404
+            
+        # Verificar si el estudiante tiene contraseña
+        if not estudiante.password:
+            return jsonify({'error': 'Este usuario no tiene contraseña configurada. Por favor contacte al administrador.'}), 401
+            
+        # Verificar contraseña
+        try:
+            if not estudiante.check_password(data['password']):
+                return jsonify({'error': 'Contraseña incorrecta'}), 401
+        except Exception as password_error:
+            # Log del error específico de verificación de contraseña
+            print(f"Error al verificar contraseña: {str(password_error)}")
+            return jsonify({'error': 'Error al verificar credenciales. Por favor contacte al administrador del sistema.'}), 500
 
         # Crear token JWT
         access_token = create_access_token(
@@ -31,7 +45,8 @@ def login():
             'estudiante': estudiante.to_dict()
         })
     except Exception as e:
-        return jsonify({'error': str(e)}), 500
+        print(f"Error en login: {str(e)}")
+        return jsonify({'error': 'Error interno del servidor. Por favor intente nuevamente más tarde.'}), 500
     finally:
         db.close()
 
