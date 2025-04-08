@@ -1,7 +1,7 @@
 
 function Sidebar() {
   return (
-    <nav className="sticky top-0 h-dvh rounded-lg drop-shadow-xl m-5 w-72 max-h-800 bg-[#F0A400] p-4 flex flex-col gap-8">
+    <nav className="sticky top-5 h-[calc(100vh-2.5rem)] rounded-lg drop-shadow-xl m-5 w-72 bg-[#F0A400] p-4 flex flex-col gap-8">
       <section className="border-t-2 border-black pt-4">
         <ul className="space-y-4">
           <li>

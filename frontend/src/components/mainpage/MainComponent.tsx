@@ -10,7 +10,7 @@ function MainComponent() {
             <main className='grid grid-cols-[350px_1fr]'>
                 <Sidebar />
                 <Dashboard />            
-            </main>
+            </main> 
         </>
 
     )

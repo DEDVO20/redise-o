@@ -2,7 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 function Header() {
   return (
-    <header className="bg-[#339AE6] flex justify-between items-center w-full px-6 py-4 border-b">
+    <header className="sticky top-0 bg-[#339AE6] flex justify-between items-center w-full px-6 py-4 border-b z-100">
       <ul className="flex w-full items-center justify-between">
         <li className="menu-element flex gap-2">
           <div className=" min-w-35 h-10 bg-[url('https://universitariadecolombia.edu.co/wp-content/uploads/2022/03/Logo_universitaria.png')] bg-cover bg-no-repeat bg-center" >
