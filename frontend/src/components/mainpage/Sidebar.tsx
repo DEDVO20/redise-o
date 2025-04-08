@@ -4,6 +4,18 @@ function Sidebar() {
     <nav className="sticky top-5 h-[calc(100vh-2.5rem)] rounded-lg drop-shadow-xl m-5 w-72 bg-[#F0A400] p-4 flex flex-col gap-8">
       <section className="border-t-2 border-black pt-4">
         <ul className="space-y-4">
+        <li>
+            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+              <div className="px-4 py-2">
+                <span className="block w-full text-left font-bold">
+                  Dashboard
+                </span>
+                <p className="text-sm mt-1">
+                  Página principal
+                </p>
+              </div>
+            </a>
+          </li>
           <li>
             <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">

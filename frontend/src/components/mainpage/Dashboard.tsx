@@ -1,4 +1,13 @@
+import TaskItems from "./TaskItems"
+const taskOptions = [
+  {title: "Historico de pagos", imageUrl: "#", buttonText: "Ver"},
+  {title: "Imprimir carnet de identificicación", imageUrl: "#", buttonText: "Imprimir"},
+  {title: "Realizar un pago", imageUrl: "#"},
+  {title: "Contactar a un agente", imageUrl: "#", buttonText: "Contactar"},
+  {title: "Materias pendientes", imageUrl: "#", buttonText: "Ver"},
+  {title: "Revisión de pensum", imageUrl: "#", buttonText: "Ver"},
 
+ ]
 function Dashboard() {
   return (
     <>
@@ -19,12 +28,30 @@ function Dashboard() {
               Aquí podrás encontrar todo lo que necesitas para tu carrera. En esta sección puede seleccionar
               cualquier tarea que necesite realizar
               con rápidez
-
             </p>
           </div>
-          <div>
-
+          <div className="flex flex-col items-start justify-start gap-8 p-6">
+            <div className="w-full">
+              <h2 className="text-2xl font-bold mb-2">Últimas tareas realizadas</h2>
+              <div className="border-l-2 border-gray-200 mb-4"></div>
+              <div className="space-y-4">
+                <TaskItems {...taskOptions[Math.floor(Math.random() * taskOptions.length)]}/>
+                <TaskItems {...taskOptions[Math.floor(Math.random() * taskOptions.length)]}/>
+              </div>
+            </div>
+            <div className="w-full">
+              <h2 className="text-2xl font-bold mb-2">Tareas populares</h2>
+              <div className="border-b-2 border-gray-200 mb-4"></div>
+              <div className="space-y-4">
+                <TaskItems {...taskOptions[Math.floor(Math.random() * taskOptions.length)]}/>
+                <TaskItems {...taskOptions[Math.floor(Math.random() * taskOptions.length)]}/>
+                <TaskItems {...taskOptions[Math.floor(Math.random() * taskOptions.length)]}/>
+                
+              </div>
+            </div>
           </div>
+
+
         </div>
       </section>
     </>
