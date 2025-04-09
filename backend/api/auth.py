@@ -5,7 +5,7 @@ from backend.models.base import SessionLocal
 from backend.models.estudiantes import Estudiante
 from datetime import timedelta
 
-auth = Blueprint('auth', __name__, url_prefix='/api/auth')
+auth = Blueprint('auth', __name__, url_prefix='/auth')
 jwt = JWTManager()
 
 @auth.route('/login', methods=['POST'])
