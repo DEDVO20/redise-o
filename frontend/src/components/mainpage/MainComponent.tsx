@@ -2,7 +2,7 @@ import { useState } from 'react'
 import Header from './Header.tsx'
 import Dashboard from './Dashboard.tsx'
 import Sidebar from './Sidebar.tsx'
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
+import { Sheet, SheetContent} from "@/components/ui/sheet"
 
 function MainComponent() {
     const [sidebarOpen, setSidebarOpen] = useState(false)

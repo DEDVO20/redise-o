@@ -11,7 +11,6 @@ import {
 import { LogOut, User, Settings, Menu } from "lucide-react"
 import { useNavigate } from "react-router-dom"
 import { Button } from "@/components/ui/button"
-import { Sheet, SheetTrigger } from "@/components/ui/sheet"
 
 function Header({ setSidebarOpen }: { setSidebarOpen?: React.Dispatch<React.SetStateAction<boolean>> }) {
   const { user, logout } = useAuth()
