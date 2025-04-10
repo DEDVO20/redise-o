@@ -6,6 +6,12 @@ import { TestConnectionPage } from "./components/pages/TestConnectionPage";
 import { ProtectedRoute } from "./components/pages/ProtectedRoute";
 import { AdminProtectedRoute } from "./components/pages/AdminProtectedRoute";
 import { useAuth } from "./lib/auth-context";
+import PSEPage from './components/pages/PSEPage'
+import GradesPage from './components/pages/GradesPage'
+import HelpPage from './components/pages/HelpPage'
+import IdPage from './components/pages/IdPage'
+import WalletPage from './components/pages/WalletPage'
+
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -29,6 +35,31 @@ function App() {
           <ProtectedRoute>
             <TestConnectionPage />
           </ProtectedRoute>
+        } />
+        <Route path="/pse" element={
+          <AdminProtectedRoute>
+            <PSEPage />
+          </AdminProtectedRoute>
+        } />
+        <Route path="/notas" element={
+          <AdminProtectedRoute>
+            <GradesPage />
+          </AdminProtectedRoute>
+        } />
+        <Route path="/cartera" element={
+          <AdminProtectedRoute>
+            <WalletPage />
+          </AdminProtectedRoute>
+        } />
+        <Route path="/idpage" element={
+          <AdminProtectedRoute>
+            <IdPage />
+          </AdminProtectedRoute>
+        } />
+        <Route path="/ayuda" element={
+          <AdminProtectedRoute>
+            <HelpPage />
+          </AdminProtectedRoute>
         } />
       </Routes>
     </BrowserRouter>

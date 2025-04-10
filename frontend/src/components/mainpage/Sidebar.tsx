@@ -37,7 +37,7 @@ function Sidebar({ className }: { className?: string }) {
       <section className="border-t-2 border-black pt-4">
         <ul className="space-y-4">
         <li>
-            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+            <Link to="/dashboard" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">
                 <span className="block w-full text-left font-bold">
                   Dashboard
@@ -46,10 +46,10 @@ function Sidebar({ className }: { className?: string }) {
                   Página principal
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+            <Link to="/cartera" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">
                 <span className="block w-full text-left font-bold">
                   Cartera
@@ -58,10 +58,10 @@ function Sidebar({ className }: { className?: string }) {
                   Revisa un historico de tus pagos
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+            <Link to="/pse" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">
                 <span className="block w-full text-left font-bold">
                   PSE
@@ -70,10 +70,10 @@ function Sidebar({ className }: { className?: string }) {
                   Realiza un pago pendiente
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+            <Link to="/idpage" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">
                 <span className="block w-full text-left font-bold">
                   Tarjeta de identificación
@@ -82,14 +82,14 @@ function Sidebar({ className }: { className?: string }) {
                   Información de tu carneta de identidad
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
         </ul>
       </section>
       <section className="border-t-2 border-black pt-4">
         <ul className="space-y-4">
           <li>
-            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+            <Link to="/notas" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">
                 <span className="block w-full text-left font-bold">
                   Notas
@@ -98,7 +98,7 @@ function Sidebar({ className }: { className?: string }) {
                   Historico de calificaciones
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/test-connection" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
@@ -113,7 +113,7 @@ function Sidebar({ className }: { className?: string }) {
             </Link>
           </li>
           <li>
-            <a href="#" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
+            <Link to="/ayuda" className="block rounded-lg hover:bg-black/10 transition-colors duration-200 cursor-pointer">
               <div className="px-4 py-2">
                 <span className="block w-full text-left font-bold">
                   Ayuda
@@ -122,7 +122,7 @@ function Sidebar({ className }: { className?: string }) {
                   Centro de ayuda
                 </p>
               </div>
-            </a>
+            </Link>
           </li>
         </ul>        
       </section>
