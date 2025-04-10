@@ -1,13 +1,18 @@
 
 import { useAuth } from "@/lib/auth-context";
 import { Link } from "react-router-dom";
+import { cn } from "@/lib/utils";
 
-function Sidebar() {
+function Sidebar({ className }: { className?: string }) {
   const { user } = useAuth();
   const isAdmin = user?.rol_id === 1;
   
   return (
-    <nav className="sticky top-5 h-[calc(100vh-2.5rem)] rounded-lg drop-shadow-xl m-5 w-72 bg-[#F0A400] p-4 flex flex-col gap-8">
+    <nav className={cn(
+      "h-[calc(100vh-2.5rem)] rounded-lg drop-shadow-xl bg-[#F0A400] p-4 flex flex-col gap-8 overflow-y-auto",
+      "md:sticky md:top-5 md:m-5 md:w-72",
+      className
+    )}>
       {/* Sección solo visible para administradores */}
       {isAdmin && (
         <section className="border-b-2 border-black pb-4">
