@@ -11,6 +11,7 @@ from .semesterRoutes import semesterRoutes
 from .enrollmentRoutes import enrollmentRoutes
 from .gradeRoutes import gradeRoutes
 from .paymentRoutes import paymentRoutes
+from .auth import auth
 
 # Registrar todos los blueprints
 api.register_blueprint(studentRoutes)
@@ -21,5 +22,6 @@ api.register_blueprint(semesterRoutes)
 api.register_blueprint(enrollmentRoutes)
 api.register_blueprint(gradeRoutes)
 api.register_blueprint(paymentRoutes)
+api.register_blueprint(auth)
 
 
