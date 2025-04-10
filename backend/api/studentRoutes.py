@@ -16,8 +16,8 @@ def createStudent():
     db = SessionLocal()
     try:
         data = request.get_json()
-        if not data or 'nombre' not in data or 'documento' not in data:
-            return jsonify({'error': 'Se requieren nombre y documento del estudiante'}), 400
+        if not data or 'nombre' not in data or 'documento' not in data or 'password' not in data:
+            return jsonify({'error': 'Se requieren nombre, documento y contraseña del estudiante'}), 400
             
         nuevo_estudiante = Estudiante(
             nombre=data['nombre'],
@@ -28,6 +28,10 @@ def createStudent():
             rol_id=data.get('rol_id'),
             estado=data.get('estado', 'Activo')
         )
+        
+        # Establecer la contraseña de forma segura
+        nuevo_estudiante.set_password(data['password'])
+        
         db.add(nuevo_estudiante)
         db.commit()
         db.refresh(nuevo_estudiante)
