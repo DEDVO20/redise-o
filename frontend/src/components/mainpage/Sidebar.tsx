@@ -9,8 +9,8 @@ function Sidebar({ className }: { className?: string }) {
   
   return (
     <nav className={cn(
-      "h-[calc(100vh-2.5rem)] rounded-lg drop-shadow-xl bg-[#F0A400] p-4 flex flex-col gap-8 overflow-y-auto",
-      "md:sticky md:top-5 md:m-5 md:w-72",
+      "h-[calc(100vh-4rem)] rounded-lg drop-shadow-xl bg-[#F0A400] p-4 flex flex-col",
+      "md:sticky md:top-4 md:m-4 md:w-72 md:max-h-210 overflow-y-auto",
       className
     )}>
       {/* Sección solo visible para administradores */}

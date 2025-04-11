@@ -1,5 +1,28 @@
 @import "tailwindcss";
-@import "tw-animate-css";
+
+@layer utilities {
+  .animate-fadeIn {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+  }
+  .animate-slideRight {
+    animation: slideRight 0.5s ease-out;
+  }
+  .animate-slideDown {
+    animation: slideDown 0.5s ease-out;
+  }
+  .animate-scaleIn {
+    animation: scaleIn 0.5s ease-out;
+  }
+  .animate-rotateIn {
+    animation: rotateIn 0.5s ease-out;
+  }
+  .animate-bounceIn {
+    animation: bounceIn 0.7s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+}
 
 @custom-variant dark (&:is(.dark *));
 

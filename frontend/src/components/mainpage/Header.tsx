@@ -28,7 +28,7 @@ function Header({ setSidebarOpen }: { setSidebarOpen?: React.Dispatch<React.SetS
   }
 
   return (
-    <header className="sticky top-0 bg-[#339AE6] flex justify-between items-center w-full px-6 py-4 border-b z-50">
+    <header className="sticky top-0 bg-[#339AE6] flex justify-between items-center w-full px-6 py-4 border-b z-50 animate-slideDown">
       <ul className="flex w-full items-center justify-between">
         <li className="menu-element flex items-center gap-2">
           <Button 

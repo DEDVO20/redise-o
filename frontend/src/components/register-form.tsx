@@ -93,10 +93,10 @@ export function RegisterForm({
   }
 
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="overflow-hidden">
+    <div className={cn("flex flex-col gap-6 animate-fadeIn", className)} {...props}>
+      <Card className="overflow-hidden animate-scaleIn">
         <CardContent className="p-6">
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="animate-slideUp">
             <div className="flex flex-col gap-6">
               <div className="flex flex-col items-center text-center">
                 <h1 className="text-2xl font-bold">Registro de Estudiante</h1>
