@@ -10,7 +10,6 @@ import { useSlideAnimation } from "@/hooks/useSlideAnimation"
 function PseMainComponent() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [loading, setLoading] = useState(false)
-    const headerSlide = useSlideAnimation({ direction: 'down', delay: 100 })
     const formSlide = useSlideAnimation({ direction: 'right', delay: 200 })
     
     const handleSubmit = (e: React.FormEvent) => {
@@ -22,7 +21,7 @@ function PseMainComponent() {
 
     return (
         <div className="min-h-screen bg-gray-50">
-            <div className={headerSlide.getSlideClass()}>
+            <div>
                 <Header setSidebarOpen={setSidebarOpen} />
             </div>
             

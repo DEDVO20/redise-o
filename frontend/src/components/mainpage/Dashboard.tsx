@@ -168,7 +168,7 @@ function Dashboard() {
             <CardTitle>Notificaciones</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="space-y-4">
+            <div className="h-full">
               <div className="flex items-center gap-2 p-2 bg-yellow-50 rounded-lg">
                 <span className="text-yellow-600">⚠️</span>
                 <p className="text-sm">Entrega pendiente en 2 días</p>

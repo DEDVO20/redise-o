@@ -9,11 +9,10 @@ import {GradesTable} from "./GradesTable"
 function GradesMainComponent() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const mainContentSlide = useSlideAnimation({ direction: 'right', delay: 200 })
-    const headerSlide = useSlideAnimation({ direction: 'down', delay: 100 })
     
     return (
         <div className="min-h-screen bg-gray-50">
-            <div className={headerSlide.getSlideClass()}>
+            <div>
                 <Header setSidebarOpen={setSidebarOpen} />
             </div>
             

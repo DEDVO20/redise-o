@@ -10,12 +10,11 @@ import { useAuth } from "@/lib/auth-context"
 function IdMainComponent() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const { user } = useAuth()
-    const headerSlide = useSlideAnimation({ direction: 'down', delay: 100 })
     const cardSlide = useSlideAnimation({ direction: 'right', delay: 200 })
     
     return (
         <div className="min-h-screen bg-gray-50">
-            <div className={headerSlide.getSlideClass()}>
+            <div>
                 <Header setSidebarOpen={setSidebarOpen} />
             </div>
             

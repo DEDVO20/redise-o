@@ -41,7 +41,6 @@ const mockPayments: Payment[] = [
 function WalletMainComponent() {
     const [sidebarOpen, setSidebarOpen] = useState(false)
     const [payments] = useState<Payment[]>(mockPayments)
-    const headerSlide = useSlideAnimation({ direction: 'down', delay: 100 })
     const summarySlide = useSlideAnimation({ direction: 'right', delay: 200 })
     const tableSlide = useSlideAnimation({ direction: 'up', delay: 300 })
     
@@ -51,7 +50,7 @@ function WalletMainComponent() {
     
     return (
         <div className="min-h-screen bg-gray-50">
-            <div className={headerSlide.getSlideClass()}>
+            <div>
                 <Header setSidebarOpen={setSidebarOpen} />
             </div>
             
