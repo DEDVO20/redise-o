@@ -1,10 +1,18 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
+interface UpdateProfileData {
+  nombre?: string;
+  apellido?: string;
+  correo?: string;
+  password?: string;
+}
+
 interface AuthContextType {
   isAuthenticated: boolean;
   user: any | null;
   token: string | null;
   login: (documento: string, password: string) => Promise<boolean>;
+  updateProfile: (data: UpdateProfileData) => Promise<boolean>;
   logout: () => void;
   loading: boolean;
   error: string | null;
@@ -90,6 +98,60 @@ export function AuthProvider({ children }: { children: ReactNode }) {
     setIsAuthenticated(false);
   };
 
+  const updateProfile = async (data: UpdateProfileData): Promise<boolean> => {
+    setLoading(true);
+    setError(null);
+    
+    if (!token) {
+      setError('No hay sesión activa');
+      setLoading(false);
+      return false;
+    }
+    
+    try {
+      const response = await fetch('http://localhost:5000/api/auth/update-profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        let errorMessage = 'Error al actualizar el perfil';
+        try {
+          const contentType = response.headers.get('content-type');
+          if (contentType && contentType.includes('application/json')) {
+            const errorData = await response.json();
+            errorMessage = errorData.error || errorData.message || errorMessage;
+          } else {
+            const errorText = await response.text();
+            errorMessage = errorText || errorMessage;
+          }
+        } catch (err) {
+          console.error('Error al procesar respuesta:', err);
+          errorMessage = `Error ${response.status}: ${response.statusText}`;
+        }
+        throw new Error(errorMessage);
+      }
+
+      const updatedData = await response.json();
+      
+      // Actualizar datos del usuario en localStorage y estado
+      const updatedUser = { ...user, ...updatedData.estudiante };
+      localStorage.setItem('user', JSON.stringify(updatedUser));
+      setUser(updatedUser);
+      setLoading(false);
+      return true;
+    } catch (err: any) {
+      console.error('Error al actualizar perfil:', err);
+      setError(err.message || 'Error al actualizar el perfil. Por favor intenta más tarde.');
+      setLoading(false);
+      return false;
+    }
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -97,6 +159,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         user,
         token,
         login,
+        updateProfile,
         logout,
         loading,
         error,

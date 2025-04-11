@@ -30,40 +30,74 @@ function IdMainComponent() {
                 <Sidebar className="hidden md:flex" />
                 <div className="p-6">
                     <Card className={`max-w-3xl mx-auto ${cardSlide.getSlideClass()}`}>
-                        <CardHeader>
-                            <CardTitle>Carnet de Identificación</CardTitle>
+                        <CardHeader className="pb-0">
+                            <CardTitle className="text-center text-xl">Carnet de Identificación</CardTitle>
                         </CardHeader>
                         <CardContent>
-                            <div className="flex flex-col md:flex-row items-center gap-8 p-6 bg-gradient-to-r from-[#0072C6] to-[#00A3FF] rounded-lg text-white">
-                                <Avatar className="w-32 h-32 border-4 border-white">
-                                    <AvatarImage src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg" />
-                                    <AvatarFallback className="text-4xl">
-                                        {user?.nombre ? user.nombre.charAt(0) + (user.apellido ? user.apellido.charAt(0) : '') : 'ES'}
-                                    </AvatarFallback>
-                                </Avatar>
-                                <div className="space-y-4 text-center md:text-left">
-                                    <div>
-                                        <h3 className="text-2xl font-bold">{user?.nombre} {user?.apellido}</h3>
-                                        <p className="text-white/80">Estudiante</p>
+                            <div className="flex flex-col p-6 bg-[#F5F5F5] rounded-lg overflow-hidden">
+                                {/* Logo y título de la universidad */}
+                                <div className="text-center mb-4">
+                                    <h2 className="text-[#002856] text-3xl font-bold mb-0">Universitaria</h2>
+                                    <h2 className="text-[#002856] text-3xl font-bold">de Colombia</h2>
+                                </div>
+                                
+                                {/* Foto del estudiante */}
+                                <div className="flex justify-center mb-2">
+                                    <Avatar className="w-32 h-32 border-2 border-gray-300">
+                                        <AvatarImage src="https://images.ctfassets.net/h6goo9gw1hh6/2sNZtFAWOdP1lmQ33VwRN3/24e953b920a9cd0ff2e1d587742a2472/1-intro-photo-final.jpg?w=1200&h=992&fl=progressive&q=70&fm=jpg" />
+                                        <AvatarFallback className="text-4xl">
+                                            {user?.nombre ? user.nombre.charAt(0)  : 'ES'}
+                                        </AvatarFallback>
+                                    </Avatar>
+                                </div>
+                                
+                                {/* Banner ESTUDIANTE */}
+                                <div className="bg-[#002856] text-white text-center py-2 mb-4">
+                                    <h3 className="text-2xl font-bold">{user?.rol?.nombre}</h3>
+                                </div>
+                                
+                                {/* Nombre del estudiante en mayúsculas */}
+                                <div className="text-center mb-4">
+                                    <h3 className="text-[#002856] text-xl font-bold">
+                                        {user?.apellido ? user.apellido.toUpperCase() : ''} {user?.nombre ? user.nombre.toUpperCase() : ''}
+                                    </h3>
+                                    {/* <h4 className="text-[#002856] font-bold">
+                                        {user?.nombre ? user.nombre.toUpperCase() : ''} {user?.apellido ? user.apellido.toUpperCase() : ''}
+                                    </h4> */}
+                                </div>
+                                
+                                {/* Información del estudiante y QR code */}
+                                <div className="flex flex-col md:flex-row gap-4">
+                                    <div className="flex-1 space-y-2">
+                                        <div>
+                                            <p className="font-bold text-[#002856] mb-0">CÓDIGO:</p>
+                                            <p className="font-semibold">{user?.documento ? `ES${user.documento.padStart(12, '0')}` : 'ES000000000000'}</p>
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-[#002856] mb-0">CÉDULA:</p>
+                                            <p className="font-semibold">{user?.documento || '1191221728'}
+                                                {console.log(user)}
+                                            </p>
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-[#002856] mb-0">EMAIL:</p>
+                                            <p className="font-semibold">{user?.correo || 'Usuario@gmail.com'}</p>
+                                        </div>
+                                        <div>
+                                            <p className="font-bold text-[#002856] mb-0">VIGENTE:</p>
+                                            <p className="font-semibold">31/12/2025</p>
+                                        </div>
                                     </div>
-                                    <div className="grid grid-cols-2 gap-4">
-                                        <div>
-                                            <p className="text-white/80">ID Estudiante</p>
-                                            <p className="font-semibold">{user?.id || '12345'}</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-white/80">Carrera</p>
-                                            <p className="font-semibold">Ingeniería de Software</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-white/80">Semestre</p>
-                                            <p className="font-semibold">6to</p>
-                                        </div>
-                                        <div>
-                                            <p className="text-white/80">Estado</p>
-                                            <p className="font-semibold">Activo</p>
-                                        </div>
+                                    
+                                    {/* QR Code */}
+                                    <div className="flex-1 flex justify-center items-center">
+                                        <img src="/assets/qr-code-sample.svg" alt="QR Code" className="w-32 h-32" />
                                     </div>
+                                </div>
+                                
+                                {/* Franja de colores de la bandera colombiana */}
+                                <div className="mt-4">
+                                    <img src="/assets/colombia-flag-stripes.svg" alt="Bandera de Colombia" className="w-full h-6" />
                                 </div>
                             </div>
                         </CardContent>

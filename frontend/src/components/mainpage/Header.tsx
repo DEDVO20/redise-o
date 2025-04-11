@@ -57,7 +57,7 @@ function Header({ setSidebarOpen }: { setSidebarOpen?: React.Dispatch<React.SetS
             <DropdownMenuContent className="w-56">
               <DropdownMenuLabel>Mi Cuenta</DropdownMenuLabel>
               <DropdownMenuSeparator />
-              <DropdownMenuItem>
+              <DropdownMenuItem onClick={() => navigate('/perfil')}>
                 <User className="mr-2 h-4 w-4" />
                 <span>Perfil</span>
               </DropdownMenuItem>

@@ -11,6 +11,7 @@ import GradesPage from './components/pages/GradesPage'
 import HelpPage from './components/pages/HelpPage'
 import IdPage from './components/pages/IdPage'
 import WalletPage from './components/pages/WalletPage'
+import ProfilePage from './components/pages/ProfilePage'
 
 
 function App() {
@@ -60,6 +61,11 @@ function App() {
           <AdminProtectedRoute>
             <HelpPage />
           </AdminProtectedRoute>
+        } />
+        <Route path="/perfil" element={
+          <ProtectedRoute>
+            <ProfilePage />
+          </ProtectedRoute>
         } />
       </Routes>
     </BrowserRouter>

@@ -37,6 +37,10 @@ class Estudiante(Base):
                 'nombre': self.carrera.nombre if self.carrera else None
             },
             'rol_id': self.rol_id,
+            'rol':{
+                'id': self.rol.id if self.rol else None,
+                'nombre': self.rol.nombre if self.rol else None
+            },
             'fecha_registro': self.fecha_registro,
             'estado': self.estado
         }
