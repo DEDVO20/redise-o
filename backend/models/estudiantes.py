@@ -16,7 +16,7 @@ class Estudiante(Base):
     carrera_id = Column(Integer, ForeignKey('Carreras.id'))
     rol_id = Column(Integer, ForeignKey('Roles.id'))
     fecha_registro = Column(DateTime, default=datetime.utcnow)
-    estado = Column(String(20), default='Activo')
+    estado = Column(String(20), default='Activo')   
 
     carrera = relationship('Carrera', back_populates='estudiantes')
     rol = relationship('Rol', back_populates='estudiantes')
@@ -32,6 +32,10 @@ class Estudiante(Base):
             'correo': self.correo,
             'foto_url': self.foto_url,
             'carrera_id': self.carrera_id,
+            'carrera':{
+                'id': self.carrera.id if self.carrera else None,
+                'nombre': self.carrera.nombre if self.carrera else None
+            },
             'rol_id': self.rol_id,
             'fecha_registro': self.fecha_registro,
             'estado': self.estado

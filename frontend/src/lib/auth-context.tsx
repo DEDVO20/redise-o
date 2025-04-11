@@ -68,7 +68,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       // Guardar token y datos del usuario
       localStorage.setItem('token', data.token);
       localStorage.setItem('user', JSON.stringify(data.estudiante));
-      
+      console.log("data", data);
       setToken(data.token);
       setUser(data.estudiante);
       setIsAuthenticated(true);

@@ -5,7 +5,7 @@ import { Progress } from "@/components/ui/progress";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 import { Calendar } from "@/components/ui/calendar";
 import { useState } from "react";
-
+import { useAuth } from "@/lib/auth-context";
 const taskOptions = [
   {title: "Historico de pagos", imageUrl: "#", buttonText: "Ver"},
   {title: "Imprimir carnet de identificicación", imageUrl: "#", buttonText: "Imprimir"},
@@ -19,8 +19,7 @@ function Dashboard() {
   const [date, setDate] = useState<Date | undefined>(new Date())
   const careerSlide = useSlideAnimation({ direction: 'left', delay: 100 });
   const statsSlide = useSlideAnimation({ direction: 'right', delay: 200 });
-  const mainContentSlide = useSlideAnimation({ direction: 'down', delay: 300 });
-
+  const { user } = useAuth();
   return (
     <section className='grid grid-cols-1 lg:grid-cols-4 gap-4 p-4 overflow-y-auto h-[calc(100vh-2rem)] max-h-screen'>
       {/* Panel de información del estudiante */}
@@ -31,7 +30,9 @@ function Dashboard() {
           </CardHeader>
           <CardContent>
             <p className="text-gray-600">Carrera:</p>
-            <h2 className='text-xl font-bold'>Ingeniería de Software</h2>
+            <h2 className='text-xl font-bold'>
+              {user?.carrera?.nombre}
+            </h2>
           </CardContent>
         </Card>
 
